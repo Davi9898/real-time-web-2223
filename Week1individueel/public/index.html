@@ -4,19 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-			crossorigin="anonymous"
-		/>
 		<link rel="stylesheet" href="css/style.css" />
 		<title>Dchat</title>
 	</head>
 	<body>
 		<div class="join-container">
 			<header class="join-header">
-				<h1> Dchat</h1>
+				<h1>CapitalGuesser</h1>
+				<p>Pick a room and start guessing the capital of the country</p>
 			</header>
 			<main class="join-main">
 				<form action="chat.html">
@@ -27,18 +22,16 @@
 							name="username"
 							id="username"
 							placeholder="Enter username..."
+							maxlength="20"
 							required
 						/>
 					</div>
 					<div class="form-control">
 						<label for="room">Room</label>
 						<select name="room" id="room">
-							<option value="League of Legends">League of Legends</option>
-							<option value="World of Warcraft">World of Warcraft</option>
-							<option value="RS07">RS07</option>
-							<option value="Counter Strike: Global offensive">Counter Strike: Global offensive</option>
-							<option value="Valorant">Valorant</option>
-							<option value="Dota 2">Dota 2</option>
+							<option value="Europe">Europe</option>
+							<option value="America">America</option>
+							<option value="Africa">Africa</option>
 						</select>
 					</div>
 					<button type="submit" class="btn">Join Chat</button>
