@@ -2,18 +2,24 @@
 
 ![Screenshot 2023-05-12 194627](https://github.com/Davi9898/real-time-web-2223/assets/76910947/8d0d34ee-e8b4-47ab-b494-06e939cc9ca7)
 # Table of contents
-
-# Inleiding
+1. [Inleiding](#inleiding)
+2. [Installation](#installation)
+3. [Moscparagraph2)
+4. [Critical Rendering Path](#paragraph3)
+5. [How to install](#paragraph4)
+6. [Checklist](#paragraph5)
+7. [Sources](#paragraph6)
+# Inleiding <a name="inleiding"></a>
 Hoe werkt mijn app? Bij het openen van de app wordt de gebruiker gevraagd om een gebruikersnaam en een kamer te kiezen. Zodra ze de kamer betreden, krijgen ze een land te zien en moeten ze de hoofdstad van dat land raden. Als een gebruiker het juiste antwoord raadt, krijgt hij een punt en wordt er een nieuw land getoond aan alle gebruikers in de kamer.
 Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in de kamer bekijken.
 
-# Installation
+# Installation <a name="installation"></a>
 
 1. clone repository
 2. npm install
 3. node server.js to run
 
-#MoScOw
+# MoScOw
 **Must have:**
 
 [x] Chatroom met data render van API
@@ -395,6 +401,7 @@ Aan de clientzijde wordt een flag (isConnected) ingesteld om aan te geven of de 
 Hiermee wordt alleen het bufferen van het chatMessage event voorkomen. Dit doe ik omdat dat het chatMessage event een van de meest belangrijke events is en het is de primaire interactie tussen de gebruiker en de server. Het is belangrijk dat deze berichten goed gehandeld worden wanneer de clients connectie status veranderd. Het toevoegen van een offline strategie voegt niet veel waarde doe voor andere events. Deze events maken niet gebruik van user inputs namelijk.
 
 # Reconnect strategie
+```js
 socket.on('reconnect', () => {
   
   let storedScores = JSON.parse(localStorage.getItem("scores") || "{}");
@@ -406,18 +413,18 @@ socket.on('reconnect', () => {
     socket.emit("chatMessage", msg);
   }
 });
+```
 Aan de serverzijde moet het disconnect event de gebruikers uit de kamer verwijderen maar niet uit m'n users datastructuur. Vervolgens wanneer de client opnieuw verbinding maakt en het joinRoom event aanroept moet er gecontroleerd worden of de gebruiker al bestaat in de users datastructuur. Als de gebruiker al bestaat dan updaten we het socketID en laten we de gebruiker opnieuw de kamer binnen. Als dit niet zo is maken we gewoon weer een nieuwe gebruiker aan. Hierdoor wordt de username en score behouden van de gebruiker
 
 ### Multi User support
 De app ondersteunt vele gebruikers. Deze komen allemaal gewoon te staan in de user list welke vervolgens doorheen gescrolled kan worden. Natuurlijk is een chatroom wel een beetje hectisch met 400 man.
 
 ### Resources
-* <a src="https://socket.io/docs/v4/>SocketIO</a>
-  * <a src="https://www.youtube.com/watch?v=ZKEqqIO7n-k">youtube</a>
-* 
-*
-*
-*
+* [SocketIO](https://socket.io/docs/v4/>SocketIO)
+* [Youtube](https://www.youtube.com/watch?v=ZKEqqIO7n-k)
+* [Youtube](https://www.youtube.com/watch?v=uyVz6LA3Eho)
+* [Youtube](https://www.youtube.com/watch?v=jD7FnbI76Hg&t=1262s)
+
 
 
 
