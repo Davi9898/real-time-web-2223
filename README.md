@@ -26,6 +26,7 @@ Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in d
 **Must have:**
 
 [x] Chatroom met data render van API
+
 **Should have:**
 
 [x] Meerdere rooms
@@ -35,11 +36,11 @@ Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in d
 [x] User list
 **Could have:**
 
-[] Cleaner code
+[ ] Cleaner code
 
-[] Inlog systeem zodat je op verschillende clients je punten kan behouden
+[ ] Inlog systeem zodat je op verschillende clients je punten kan behouden
 
-[] States
+[ ] States
 
 # External data source <a name="datasource"></a>
 Voor dit project heb ik de rest countries API gebruikt. Rest countries is een API die je verschillende datasets aanbiedt met informatie over landen. Je kan verschillende querys aanroepen om zo bijvoorbeel een regio te krijgen. Voor mijn API heb ik gebruik gemaakt van drie verschillende regio's namelijk: Europe, America en Africa. Voor het randomizen van de data die terugkomt zodat je niet telkens begint met het zelfde land heb ik het volgende gedaan:
