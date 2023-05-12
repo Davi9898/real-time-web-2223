@@ -34,6 +34,7 @@ Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in d
 [x] Puntenscore
 
 [x] User list
+
 **Could have:**
 
 [ ] Cleaner code
