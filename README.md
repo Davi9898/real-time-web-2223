@@ -10,6 +10,8 @@
 6. [Data lifecycle](#lifecycle)
 7. [Server](#server)
 8. [Client](#client)
+9. [Offline strategie](#offline)
+
 # Inleiding <a name="inleiding"></a>
 Hoe werkt mijn app? Bij het openen van de app wordt de gebruiker gevraagd om een gebruikersnaam en een kamer te kiezen. Zodra ze de kamer betreden, krijgen ze een land te zien en moeten ze de hoofdstad van dat land raden. Als een gebruiker het juiste antwoord raadt, krijgt hij een punt en wordt er een nieuw land getoond aan alle gebruikers in de kamer.
 Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in de kamer bekijken.
@@ -365,7 +367,7 @@ socket.on("updateScore", (score) => {
 ```
 Deze eventhandler zorgt ervoor dat de score wordt opgeslagen en ook wordt de storedScores opgeslagen gelinked aan de username in localStorage. Zo kun je weer verder spelen met je username en behoudt je je score. De server vangt dit ook af waardoor andere je punten ook kunnen zien.
 
-# Offline stategie
+# Offline stategie <a name="offline"></a>
 
 server.js 
 ```js
