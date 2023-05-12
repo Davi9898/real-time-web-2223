@@ -29,12 +29,16 @@ Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in d
 **Should have:**
 
 [x] Meerdere rooms
+
 [x] Puntenscore
+
 [x] User list
 **Could have:**
 
 [] Cleaner code
+
 [] Inlog systeem zodat je op verschillende clients je punten kan behouden
+
 [] States
 
 # External data source <a name="datasource"></a>
