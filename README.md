@@ -4,11 +4,12 @@
 # Table of contents
 1. [Inleiding](#inleiding)
 2. [Installation](#installation)
-3. [Moscparagraph2)
-4. [Critical Rendering Path](#paragraph3)
-5. [How to install](#paragraph4)
-6. [Checklist](#paragraph5)
-7. [Sources](#paragraph6)
+3. [Moscow](#moscow)
+4. [External data source](#datasource)
+5. [API data model](#datamodel)
+6. [Data lifecycle](#lifecycle)
+7. [Server](#server)
+8. [Client](#client)
 # Inleiding <a name="inleiding"></a>
 Hoe werkt mijn app? Bij het openen van de app wordt de gebruiker gevraagd om een gebruikersnaam en een kamer te kiezen. Zodra ze de kamer betreden, krijgen ze een land te zien en moeten ze de hoofdstad van dat land raden. Als een gebruiker het juiste antwoord raadt, krijgt hij een punt en wordt er een nieuw land getoond aan alle gebruikers in de kamer.
 Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in de kamer bekijken.
@@ -19,7 +20,7 @@ Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in d
 2. npm install
 3. node server.js to run
 
-# MoScOw
+# MoScOw <a name="moscow"></a>
 **Must have:**
 
 [x] Chatroom met data render van API
@@ -34,7 +35,7 @@ Gebruikers kunnen ook met elkaar chatten en de scores van andere gebruikers in d
 [] Inlog systeem zodat je op verschillende clients je punten kan behouden
 [] States
 
-# External data source
+# External data source <a name="datasource"></a>
 Voor dit project heb ik de rest countries API gebruikt. Rest countries is een API die je verschillende datasets aanbiedt met informatie over landen. Je kan verschillende querys aanroepen om zo bijvoorbeel een regio te krijgen. Voor mijn API heb ik gebruik gemaakt van drie verschillende regio's namelijk: Europe, America en Africa. Voor het randomizen van de data die terugkomt zodat je niet telkens begint met het zelfde land heb ik het volgende gedaan:
 
 ```js
@@ -62,11 +63,11 @@ async function selectCountry(room) {
 
 Dus wanneer een gebruiker de kamer betreedt wordt deze functie aangeroepen. We zetten dit om naar een json en slaan het op in het roomData object en dit emitten we naar alle clients in de kamer. De client-side het country event op welke de name en capital bevatten en vervolgens injecteren we dit dan in de HTML. Belangrijk om te weten dat wanneer een gebruiker alleen in de kamer is de kamer kan refreshen en dan zal de instantie ook ververst worden. Maar met meerdere client zal dit niet gebeuren. Hierdoor lopen we niet tegen problemen aan.
 
-### API Data model
+### API Data model <a name="datamodel"></a>
 
 ![ApiData](https://github.com/Davi9898/real-time-web-2223/assets/76910947/c0d0f87e-5f37-4187-ba30-408bf5141688)
 
-# Data lifecycle 
+# Data lifecycle <a name="lifecycle"></a>
 1. Wanneer een gebruiker de app opent, maakt de client een verbinding met de server via socket.io.
 2. De gebruiker kiest een gebruikersnaam en een kamer. Deze informatie wordt naar de server gestuurd, die de gebruiker aan de geselecteerde kamer toevoegt.
 3. De server haalt gegevens op van een externe bron (Restcountries API) om een land en zijn hoofdstad te selecteren.
@@ -89,7 +90,7 @@ Structuur van m'n applicatie
 * index.html
 * chat.html
 
-### Server.js | events
+### Server.js <a name="server"></a>
 
 Dit is de hoofdserver van mijn applicatie. Het gebruikt Node.js, Express en socketio om een webserver mee te maken. De server luistert naar verschillende events die worden verzonden naar de client
 
@@ -274,7 +275,8 @@ function userLeave(id) {
 ```
 Deze functies spreken eigenlijk voorzich. Currentuser haalt currentuser op op basis van hun socketID en userleave wordt gebruikt om de gebruiker te verwijderne uit de lijst van actieve gebruikers.
 
-### main.js
+### main.js <a name="client"></a>
+Dit is het belangrijkste client-side JavaScript-bestand. Het maakt verbinding met de server via socket.io en luistert naar verschillende events. Het beheert ook de gebruikersinterface van de chat, inclusief het formulier om berichten te verzenden en het weergeven van berichten in de chat.
 
 ```js
 socket.on("connect", function () {
