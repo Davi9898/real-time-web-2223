@@ -94,6 +94,19 @@ socket.on("updateScore", (score) => {
   socket.emit("requestRoomUsers");
 });
 
+socket.on('reconnect', () => {
+  // Rejoin the room
+  let storedScores = JSON.parse(localStorage.getItem("scores") || "{}");
+  let storedScore = storedScores[username] || 0;
+  socket.emit("joinRoom", { username, room, score: storedScore });
+
+  // Resend any unsent messages
+  while (messageBuffer.length > 0) {
+    const msg = messageBuffer.shift();
+    socket.emit("chatMessage", msg);
+  }
+});
+
 // Message output naar DOM
 function outputMessage(message) {
   const messageDiv = document.createElement("div");
